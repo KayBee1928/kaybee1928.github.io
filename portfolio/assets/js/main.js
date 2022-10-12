@@ -9,6 +9,9 @@
 	var	$window = $(window),
 		$body = $('body'),
 		$header = $('#header'),
+		$features = $('#features'),
+		$browseall = $('#browseall'),
+		$showless = $('#showless'),
 		$banner = $('#banner');
 
 	// Breakpoints.
@@ -22,9 +25,23 @@
 
 	// Play initial animations on page load.
 		$window.on('load', function() {
+			$showless.hide();
+			$(".ft-project").slice(4).addClass('hide-project');
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
+		});
+
+		$browseall.on('click', function() {
+			$(".ft-project").slice(4).removeClass('hide-project');
+			$browseall.hide();
+			$showless.show();
+		});
+
+		$showless.on('click', function() {
+			$(".ft-project").slice(4).addClass('hide-project');
+			$showless.hide();
+			$browseall.show();
 		});
 
 	// Header.
